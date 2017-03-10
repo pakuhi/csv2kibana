@@ -26,11 +26,14 @@ cd PATH_TO_KIBANA_FOLDER
 ```
 * open the address ```localhost:5601``` in the browser
 
+* stop elasticsearch and kiband by pressing CTRL+C in both consoles
+
 =====================================
 
 **CONVERT csv data to json**
 
 ```
+cd PATH_TO_csv2kibana_FOLDER/scripts
 python csv2json.py -i PATH_TO_CSV_FILE -o PATH_TO_FOLDER_WITH_JSON_FILES [-t DATA_TYPE_NAME]
 ```
 

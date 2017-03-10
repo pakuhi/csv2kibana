@@ -92,22 +92,28 @@ def main():
 						row[key] = int(0)
 			elif key == 'AreaSurveyed_m2':
 				if isfloat(row[key]):
-					row[key] = float(row[key])
+					try: row[key] = float(row[key])
+					except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])
 				elif row[key].endswith(' m'):
-					row[key] = float(row[key][:-2])
+					try: row[key] = float(row[key][:-2])
+					except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])					
 				elif row[key].endswith('m'):
-					row[key] = float(row[key][:-1])
+					try: row[key] = float(row[key][:-1])
+					except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])
 				else:
 					row[key] = float(0)
 			elif (key=='Bleaching_YNas10' or key=='DataProvidedNow_YNas10' or key=='PublicMandate_YNas10'):
 				if isint(row[key]):
-					row[key] = int(row[key])
+					try: row[key] = int(row[key])
+					except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])
 				elif row[key] == 'Y': row[key] = 1
 				elif row[key] == 'N': row[key] = 0
 			elif isint(row[key]):
-				row[key] = int(row[key])
+				try: row[key] = int(row[key])
+				except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])
 			elif isfloat(row[key]):
-				row[key] = float(row[key])
+				try: row[key] = float(row[key])
+				except ValueError: print 'Value error in line %d for value %s' % (counter, row[key])
 
 		if lat and long:
 			del row[lat_key]
